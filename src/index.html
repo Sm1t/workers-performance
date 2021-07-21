@@ -1,0 +1,59 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Webpack App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .funny-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      background-color: indigo;
+      color: #fff;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .funny-button:hover {
+      background-color: blueviolet;
+    }
+
+    .funny-button__text {
+      display: inline-block;
+      animation-name: rotating;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes rotating {
+      0% {
+        transform: rotate(0);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  Эта демонстрация иллюстрирует transferable (передаваемые) объекты. Передаваемые объекты - это объекты, которые не
+  копируются
+  (например, с использованием труктурированного клонирования). Вместо этого данные передаются из одного
+  контекста в другой. «Версия» из вызывающего контекста больше не доступна после передачи в новый контекст. Например,
+  при передаче ArrayBuffer из основного приложения в Worker исходный ArrayBuffer из основного потока очищается и больше
+  не может использоваться. Это значительно улучшает производительность отправки данных работнику. Эта демонстрация
+  отправляет 32MB ArrayBuffer работнику и обратно, используя другую postMessage(), который поддерживает
+  передаваемые объекты: postMessage(message, [transfer]).
+
+  <pre id="result"></pre>
+
+  <button class="funny-button" id="run">
+    <span class="funny-button__text">Run</span>
+  </button>
+</body>
+
+</html>
